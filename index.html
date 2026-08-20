@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>RemitCompare — Live Remittance Rate Comparison</title>
+<meta name="description" content="Compare live remittance provider rates side by side and find the best value for sending money home right now.">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <header class="hero">
+    <h1>RemitCompare</h1>
+    <p>send more home — compare providers against the live mid-market rate, side by side</p>
+  </header>
+
+  <main>
+    <form id="convert-form" class="convert-form">
+      <div class="field">
+        <label for="amount">You send</label>
+        <div class="amount-row">
+          <input id="amount" type="number" min="1" step="1" value="10000" required>
+          <select id="from-currency">
+            <option value="PHP" selected>PHP — Philippine Peso</option>
+            <option value="USD">USD — US Dollar</option>
+            <option value="AED">AED — UAE Dirham</option>
+            <option value="SGD">SGD — Singapore Dollar</option>
+            <option value="SAR">SAR — Saudi Riyal</option>
+            <option value="HKD">HKD — Hong Kong Dollar</option>
+          </select>
+        </div>
+      </div>
+      <div class="field">
+        <label for="to-currency">They receive</label>
+        <select id="to-currency">
+          <option value="USD">USD — US Dollar</option>
+          <option value="PHP" selected>PHP — Philippine Peso</option>
+          <option value="AED">AED — UAE Dirham</option>
+          <option value="SGD">SGD — Singapore Dollar</option>
+          <option value="SAR">SAR — Saudi Riyal</option>
+          <option value="HKD">HKD — Hong Kong Dollar</option>
+        </select>
+      </div>
+      <button type="submit" id="compare-btn">Compare rates</button>
+    </form>
+
+    <p id="status-line" class="status-line">Enter an amount and currencies, then compare.</p>
+
+    <section id="results" class="results hidden" aria-live="polite">
+      <p class="mid-market" id="mid-market"></p>
+      <div class="providers" id="providers"></div>
+      <p class="disclaimer">
+        Provider figures are illustrative margins applied to the live
+        mid-market rate for demo purposes — not live quotes from the
+        providers themselves. See the readme for details.
+      </p>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <p>Mid-market rate via a free public exchange-rate API. No backend, no login. <a href="https://github.com/arjayb/RemitCompare" target="_blank" rel="noopener">Source</a></p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
